@@ -82,3 +82,62 @@ temp->next = newNode;
 
 return head;
 }
+
+//Delete at begnning 
+// move head to the next node and remove the first node
+
+
+struct Node* deleteAtBeg(struct Node*head){
+    
+if(head==NULL){
+    printf("List is already empty");//step1-- check if list is empty
+    return NULL;
+}
+//store first node(head)
+struct Node*temp=head;
+//move head to the next node
+head= head->next;
+//free the old node
+free(temp);
+return head;
+}
+
+//Delete at the end 
+struct Node*deleteATend(struct Node*head){
+    
+    //check if the list is empty
+    if(head==NULL){
+        printf("List is empty\n");
+        return NULL;
+    }
+    //ony one node
+    if(head->next=NULL){
+        free(head);
+        return NULL;
+    }
+
+
+    struct Node*temp=head; 
+    //Traverse to the end
+   while(temp->next->next!=NULL){
+        temp=temp->next;
+    }
+    
+    free(temp->next);
+    
+    //set the second last node as last
+    temp->next=NULL;
+    return head;
+}
+
+//Traverse LINKED LIST
+
+void travserse(struct Node*head){
+    struct Node*temp=head;
+    while(temp!=NULL){
+        printf("%d", temp->data);
+        temp=temp->next;
+    }
+}
+
+
