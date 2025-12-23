@@ -1,0 +1,19 @@
+Algorithm of push and pop operation
+
+PUSH(stack,data):
+1. check if the stack is full
+   if top==max-1 //full stack
+   print "Overflow"
+2. else
+   increment top by 1 //top++
+   stack[top]=data 
+3. Stop
+
+
+POP(Stack):
+1. check for under flow
+   if top==-1 //empty stack
+   print "Underflow"
+2. else
+   decrement top by 1 //top--
+3. Stop
