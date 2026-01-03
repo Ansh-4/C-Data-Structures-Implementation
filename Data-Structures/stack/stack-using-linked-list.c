@@ -22,7 +22,7 @@ struct stack* createNode(int data) {
 // PUSH
 struct stack* push(struct stack* top, int data) {
     struct stack* newNode = createNode(data);
-    if (newNode == NULL) {
+    if (top == NULL) {
         printf("stack Overflow\n");
         return top;
     }
@@ -80,4 +80,5 @@ int main() {
 
     return 0;
 }
+
 
