@@ -1,84 +1,74 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Stack implementation using linked list
+//Node structure
 
-struct stack {
+struct Node{
     int data;
-    struct stack* next;
+    struct Node*next;
 };
+struct Node*top=NULL; //stack top
 
-// create node
-struct stack* createNode(int data) {
-    struct stack* newNode = (struct stack*)malloc(sizeof(struct stack));
-    if (newNode == NULL) {
-        return NULL;
+//Push
+void push(int val){
+    struct Node*newNode=(struct Node*)malloc(sizeof(struct Node));
+    
+    if(newNode==NULL){
+        printf("Stack Overflow\n");
+        return;
     }
-    newNode->data = data;
-    newNode->next = NULL;
-    return newNode;
+    newNode->data=val;
+    newNode->next=top;
+    top=newNode;
 }
 
-// PUSH
-struct stack* push(struct stack* top, int data) {
-    struct stack* newNode = createNode(data);
-    if (top == NULL) {
-        printf("stack Overflow\n");
-        return top;
-    }
-    newNode->next = top;
-    return newNode;
-}
-
-// POP
-struct stack* pop(struct stack* top) {
-    if (top == NULL) {
+//POP
+void pop(){
+    if(top==NULL){
         printf("Stack Underflow\n");
-        return NULL;
+        return;
     }
-    struct stack* temp = top;
-    top = top->next;
+    
+    struct Node*temp=top;
+    printf("Popped element is %d",top->data);
+    top=top->next;
     free(temp);
-    return top;
 }
 
-// PEEK
-int peek(struct stack* top) {
-    if (top == NULL) {
-        printf("Stack is empty\n");
-        return -1;
-    }
-    return top->data;
-}
+//peek
 
-// DISPLAY
-void display(struct stack* top) {
-    if (top == NULL) {
+void peek(){
+    if(top==NULL){
         printf("Stack is empty\n");
         return;
     }
-    while (top != NULL) {
-        printf("%d ", top->data);
-        top = top->next;
-    }
-    printf("\n");
+    printf("Top element of the stack : %d",top->data);
 }
 
+//Display
+
+void display(){
+    if(top==NULL){
+        printf("stack is empty");
+    }
+    //traverse
+    struct Node*temp=top;
+    while(temp->next!=NULL){
+        printf("%d\n",temp->data);
+        temp=temp->next;
+    }
+}
+
+// Main function
 int main() {
-    struct stack* top = NULL;
+    push(10);
+    push(20);
+    push(30);
 
-    top = push(top, 5);
-    top = push(top, 10);
-    top = push(top, 15);
-
-    display(top);
-
-    printf("Top element: %d\n", peek(top));
-
-    top = pop(top);
-    display(top);
+    display();
+    peek();
+    pop();
+    display();
 
     return 0;
 }
-
-
