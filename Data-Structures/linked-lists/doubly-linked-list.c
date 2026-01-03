@@ -106,7 +106,7 @@ struct Node*DELatEND(struct Node*head){
     }
     //delete the last node
     temp->prev->next=NULL;
-    free(head)
+    free(temp)
 
     return head;
 }
@@ -139,4 +139,5 @@ void revTRAVERSAL(struct Node*head){
 
 
 }
+
 
