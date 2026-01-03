@@ -13,7 +13,7 @@ struct Node* DLLNode(int data){
     struct Node*newNode=(struct Node*)malloc(sizeof(struct Node));
     newNode->prev=NULL;
     newNode->data=data;
-    newNode->next=NULL:
+    newNode->next=NULL;
     return newNode;
 } 
 
@@ -139,3 +139,4 @@ void revTRAVERSAL(struct Node*head){
 
 
 }
+
