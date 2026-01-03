@@ -23,7 +23,7 @@ struct stack* createNode(int data) {
 struct stack* push(struct stack* top, int data) {
     struct stack* newNode = createNode(data);
     if (newNode == NULL) {
-        printf("Heap Overflow\n");
+        printf("stack Overflow\n");
         return top;
     }
     newNode->next = top;
@@ -80,3 +80,4 @@ int main() {
 
     return 0;
 }
+
