@@ -25,7 +25,7 @@ struct Node*ADDbeg(int data, struct NODE*head){
     struct Node*newNode=(struct Node*)malloc(sizeof(struct Node));
     newNode->next=NULL;
     newNode->data=data;
-    newNode->prev=NUL
+    newNode->prev=NULL;
     //if list is empty
     if(head==NULL){
         return newNode;
@@ -136,5 +136,6 @@ void revTRAVERSAL(struct Node*head){
         printf("%d",temp->data);
         temp=temp->prev;
     }
+
 
 }
